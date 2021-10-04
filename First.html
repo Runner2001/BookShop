@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            text-align: center;
+            opacity: 0.6;
+            padding: 20px;
+            margin-left: 500px;
+            box-shadow:0 1px 10px #e2e2e2;
+            margin-top: 200px;
+        }
+        #first{
+            margin-top: 100px;
+        }
+        form{
+            align : center;
+            
+            padding-top: 30px;
+            
+        }
+        button{
+            padding-left: 40px;
+            padding-right: 40px;
+            height: 30px;
+            color: seagreen;
+            background-color: snow;
+            border-width: 1px;
+            border-color: seagreen;
+            border-radius: 8px;
+            display: inline-block;
+            transition-duration: 0.5s;
+            cursor: pointer;
+            box-shadow: 0 8px 3px #efefef;
+            
+            
+        }
+        button:hover{
+            background-color: seagreen;
+            color: white;
+        }
+        #Button{
+            margin-left: 10px;
+            margin-top: 100px;
+        }
+        #circle{
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: black;
+            margin: auto;
+            margin-top: -60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+        <div id="circle"></div>
+        <form>
+            <label for="Fname">Your Name : </label>
+            <input type="text" id="Fname" placeholder="Name"><br><br>
+            <label for="Fpass">Your Pass : </label>
+            <input type="text" id="Fpass" placeholder="Password">
+            <button id="Button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

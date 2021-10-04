@@ -1,0 +1,26 @@
+.Bestnow{
+    width: 1076px;
+    height: 250px;
+    background-color: #FFEEBB;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 16px;
+}
+.Bestbook{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Besttext{
+    margin-left: 30px;
+}
+.Header{
+    color: #4075DE;
+    font-size: 25px;
+    font-weight: bold;
+}
+.Body{
+    color: black;
+    font-size: 15px;
+    margin-top: 1em;
+}

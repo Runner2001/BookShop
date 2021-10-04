@@ -1,0 +1,73 @@
+.Popularbook{
+    width: 1100px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h3{
+    font-weight: bold;
+    font-size: 20px;
+}
+.Scrollbooks{
+    width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.Book1{
+    width: 348px;
+    height: 180px;
+    border-radius: 18px;
+    box-shadow: 0 2px 10px #e2e2e2;
+    display: flex;
+    justify-content: space-between;
+}
+.Popularbookimg{
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+}
+.Text{
+    margin-top: 10px;
+    margin-right: 50px;
+}
+.Bookname{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.Bookauthor{
+    margin-top: -5px;
+    margin-bottom: 20px;
+    color: #363535;
+    opacity: 80%;
+}
+button.Popularseemore{
+    border: 1px solid #0f6;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+}
+.Popularseemore:hover{
+    background-color: #0f6;
+    color: white;
+
+}
+.Newtranding{
+    width: 1100px;
+    margin: auto;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.Newtrandingimg{
+    width: 130px;
+    height: 170px;
+    border-radius: 8px;
+}

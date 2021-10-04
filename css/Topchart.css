@@ -1,0 +1,56 @@
+.Topchart{
+    width: 1100px;
+    height: auto;
+    margin: auto;
+}
+.Secondtopchart{
+    width: 1100px;
+    height: auto;
+    margin-top: 40px;
+}
+.Topcolum{
+    display: flex;
+    justify-content: space-between;
+}
+.Top{
+    display: flex;
+}
+.Topchartimg{
+    width: 65px;
+    height: 92px;
+    border-radius: 5px;
+}
+.Toptext{
+    margin-left: 20px;
+    display: flex;
+}
+h2{
+    margin: 30px 0 0 10px ;
+}
+.Topbookname{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0 0 20px;
+    font-weight: normal;
+}
+.Topwriter{
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    opacity: 60%;
+}
+img{
+    cursor: pointer;
+}
+.Eachcatagories{
+    margin-top: 10px;
+    display: flex;
+    font-size: 17px;
+    font-weight: 400;
+    opacity: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+p.Eachtext{
+    margin-left: 70px;
+}

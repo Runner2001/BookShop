@@ -1,0 +1,15 @@
+.Seeall{
+    padding: 10px 40px 10px 40px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #363535;
+    color: #363535;
+    opacity: 60%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.Seeall:hover{
+    color: black;
+    opacity: 100%;
+    border-color: black;
+}

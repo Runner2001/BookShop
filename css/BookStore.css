@@ -1,0 +1,23 @@
+.Nowbook{
+    width: 1076px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.Best{
+    width: 348px;
+    height: 180px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid violet;
+}
+p.Title{
+    margin-top: 60px;
+}
+p.Subtitle{
+    margin-top: 8px;
+}
+hr{
+    margin-top: -8px;
+}
