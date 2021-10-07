@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="first" v-cloak> <!-- v-cloak This is For not to display vue code when isn't ready  --> 
+
+        <input v-model="word" />
+        {{ word }}
+    
+        <h1 v-if = 'visible' > Hello </h1>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //Vue code
+        let app = Vue.createApp({
+            data : function(){
+                return {
+                    word : 'Hello',
+                    visible : true
+                }
+            }
+        })
+        app.mount('#first')
+    </script>
+
+</body>
+</html>
