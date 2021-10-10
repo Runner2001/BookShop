@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="show">
+      <input-form />
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+      let app = Vue.createApp({});
+
+      app.component("input-form", {
+        template: `
+                    <form> 
+                        <input v-model="text"/>
+                        <button @click.prevent = "change">Change</button>
+                        <button on:click = "delete">Delete</button>
+                        <p v-if = 'show'>{{result}}</p>
+                    </form>
+                `,
+        data() {
+          return {
+            text: '',
+            result: '',
+            show: false
+          };
+        },
+        methods: {
+          change() {
+            this.show  = true
+            this.result = this.text.split("").reverse().join("")
+            console.log(this.text.split("").reverse().join(""));
+          },
+          delete(){
+            this.show = false,
+            this.result = '',
+            this.text = ''
+          }
+        }
+      });
+
+      app.mount("#show");
+    </script> 
+  </body>
+</html>

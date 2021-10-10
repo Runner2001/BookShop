@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="Exchage">
+        <exchange-form/>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({})
+        app.component('exchange-form',{
+            template: `
+                <form @submit.prevent='change'>
+                    <h1>{{ title }}</h1>
+                    <input type='text' v-model='mmk'>
+                    <button>Submit</button>    
+                </form>
+            `,
+            data(){
+                return {
+                    title : 'Dollar Change',
+                    mmk : 0
+                }
+            },
+            methods : {
+                change(){
+                    console.log('Your Dollar is ' + this.mmk/2000 + " $");
+                    alert("Your dollar is " + this.mmk/2000 + " $")
+                }
+            }
+        })
+        app.mount('#Exchage')
+    </script>
+
+</body>
+</html>

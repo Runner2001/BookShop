@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Component Form -->
+    <div id="second">
+        <login-form/>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        let app = Vue.createApp({
+        })
+        // <-- :label is short for v-bind:label bind to child proparties    -->
+     app.component('login-form',{
+            template: `
+                <form @submit.prevent="submit">
+                    <h1> {{title}} </h1>
+                    
+                    
+                    <custom-input 
+                        v-for='(input) in inputs'
+                        v-model="input.value" 
+                        :label='input.label'
+                    />
+                    
+                    <button>Log in</button>
+                </form>
+            `,
+            component : ['custom-input'],
+            data(){
+                return{
+                    title : "Log IN",
+                    inputs : [
+                    {
+                        label : 'Email',
+                        value : '',
+                        type : 'text'
+                    },
+                    {
+                        label : 'Password',
+                        value : '',
+                        type : 'text'
+                    }
+                    ]
+                }
+            }
+            ,
+            methods : {
+                submit(){
+                    //show data of array
+                    console.log(this.inputs[0].value,this.inputs[1].value);
+                }
+            }
+        })
+     app.component('custom-input',{
+        template: `
+            <label>
+                {{ label }}
+                <input :type="type" v-model="inputValue">
+            </label>
+        `,
+        props : ['label', 'type' ,'modelValue'], 
+        //model is v-model to get data
+        computed : { 
+        //computed is the vue object to accept data
+            inputValue: {
+                get(){
+                    return this.modelValue
+                },
+                set(value){
+                    console.log(value)
+                    this.$emit('update:modelValue', value)
+                }
+            }
+        }
+
+     })
+        app.mount('#second')
+
+    </script>
+</body>
+</html>

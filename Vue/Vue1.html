@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none; 
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+        input{
+            display: block;
+            margin : 10px;
+        }
+        button{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="first" v-cloak> <!-- v-cloak This is For not to display vue code when isn't ready  --> 
+
+        <input v-model="word" />
+        {{ word }}
+    
+        <hr>
+
+        <!-- For Input Data -->
+        <input @keyup.enter="greet(word)" v-model="word"/>
+        <div v-if = "greet1" class="box"></div>
+
+        <hr/>
+
+        <!-- <button v-on:click="visible = !visible">Toggle</button>
+        <div v-if = 'visible' class="box"></div> -->
+
+        <button @click="togglebox">Toggle</button>
+        <div v-if = "visible" class="box"></div>
+
+        <hr>
+        <login-form/>
+
+
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //Vue code
+        let app = Vue.createApp({
+            data : function(){
+                return {
+                    word : "true",
+                    visible : false,
+                    greet1 : true
+                }
+            },
+            methods :{
+                togglebox(){
+                    return this.visible = !this.visible;
+                },
+                greet(word){
+                    this.greet1 = word;
+                    console.log(this.greet1)
+                }
+            }
+        })
+
+        // For Componet
+        app.component('login-form',{
+            template: `
+                <form @submit="submit">
+                    <h1> {{title}} </h1>
+                    <input type="email" v-model="email"/>
+                    <input type="password" v-model="passowrd"/>
+                    <button>Log in</button>
+                </form>
+            `,
+            data(){
+                return{
+                    title : "Log IN",
+                    email : '',
+                    password : ''
+                }
+            },
+            methods : {
+                submit(){
+                    console.log(this.email,this.password)
+                }
+            }
+        })
+
+
+        app.mount('#first')
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Component Form -->
+    <div id="second">
+        <login-form/>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        let app = Vue.createApp({
+        })
+        // <-- :label is short for v-bind:label bind to child proparties    -->
+     app.component('login-form',{
+            template: `
+                <form @submit.prevent="submit">
+                    <h1> {{title}} </h1>
+                    <custom-input v-model="email" :label='emaillabel'/>
+                    <custom-input v-model="password" :label='passlabel'/>
+                    <button>Log in</button>
+                </form>
+            `,
+            component : ['custom-input'],
+            data(){
+                return{
+                    title : "Log IN",
+                    email : '',
+                    password : '',
+                    emaillabel : 'Email',
+                    passlabel : 'Passowrd'
+                }
+            }
+            ,
+            methods : {
+                submit(){
+                    console.log(this.email,this.password)
+                }
+            }
+        })
+     app.component('custom-input',{
+        template: `
+            <label>
+                {{ label }}
+                <input type="text" v-model="inputValue">
+            </label>
+        `,
+        props : ['label','modelValue'], 
+        //model is v-model to get data
+        computed : { //computed is the vue object to accept data
+            inputValue: {
+                get(){
+                    return this.modelValue
+                },
+                set(value){
+                    console.log(value)
+                    this.$emit('update:modelValue', value)
+                }
+            }
+        }
+
+     })
+        app.mount('#second')
+
+    </script>
+</body>
+</html>

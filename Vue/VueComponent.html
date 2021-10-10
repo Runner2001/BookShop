@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Now we can pass the todo into each repeated component using v-bind:
+
+    <div id="app-7">
+      <ol>
+        <!--
+      Now we provide each todo-item with the todo object
+      it's representing, so that its content can be dynamic.
+      We also need to provide each component with a "key",
+      which will be explained later.
+    -->
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+      Vue.component("todo-item", {
+        props: ["todo"],
+        template: "<li>{{ todo.text + todo.id }}</li>",
+      });
+
+      var app7 = new Vue({
+        el: "#app-7",
+        data: {
+          groceryList: [
+            { id: 2, text: "Vegetables" },
+            { id: 1, text: "Cheese" },
+            { id: 0, text: "Whatever else humans are supposed to eat" },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
