@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">{{full}}</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      //Watch Function dosen work in auto
+      //   let app = new Vue({
+      //       el : '#app',
+      //       data : {
+      //           first : 'Min',
+      //           last : 'Thein',
+      //           full : 'Min Thein'
+      //       },
+      //       watch : {
+      //           firstname(val){
+      //               this.full = val + '' + this.last
+      //           },
+      //           lastname(val){
+      //               this.full = this.first + '' + val
+      //           }
+      //       }
+      //   })
+
+      //   var vm = new Vue({
+      //     el: "#app",
+      //     data: {
+      //       firstName: "Foo",
+      //       lastName: "Bar",
+      //     },
+      //     computed: {
+      //       full: function () {
+      //         return this.firstName + " " + this.lastName;
+      //       },
+      //     },
+      //   });
+
+
+      //To run vm.full = 'Min Thein' should use in console
+      var vm = new Vue({
+        computed: {
+          full: {
+            // getter
+            get: function () {
+              return this.firstName + " " + this.lastName;
+            },
+            // setter
+            set: function (newValue) {
+              var names = newValue.split(" ");
+              this.first = names[0];
+              this.last = names[names.length - 1];
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

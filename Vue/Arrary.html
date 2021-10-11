@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li>Even Number is </li>
+            <li v-for= "n in evennumber">{{n}}</li>
+        </ul>
+        <!-- Nested For Loop cant use computed -->
+        <ul v-for= "number in number2">
+            <li v-for= "n in even(number)">{{n}}</li>
+        </ul>
+        <!-- v-for in range -->
+        <div v-for='range in 10'>
+            <span>{{range}}</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el : '#app',
+            data : {
+                number : [1,2,3,4,5,6,7,8,],
+                number2 : [[1,2,3,4,5],[6,7,8,9,10]]
+            },
+            computed : {
+                evennumber(){
+                    return this.number.filter( num => num % 2 === 0)
+                }
+            },
+            methods : {
+                even(num){
+                    return num.filter(number => number % 2 === 0)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

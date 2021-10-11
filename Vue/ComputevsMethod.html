@@ -7,14 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div id="app">
-        
+            <p>{{now}}</p>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
-        let app = new Vue({
-            el : '#app'
+        var app = new Vue({
+            el : '#app',
+            computed : {
+                now : function(){
+                    return Date.now()
+                }
+            }
         })
     </script>
 </body>
