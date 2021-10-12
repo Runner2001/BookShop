@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click.prevent = "add($event)">Add +1</button>
+        <!-- $event is just add original Dom event  -->
+        {{num}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el : '#app',
+            data : {
+                num : 0
+            },
+            methods : {
+                add : function(event){
+                    // alert(event.target.tagName)
+                    return this.num = this.num + 1
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- the click event's propagation will be stopped -->
+<!-- <a v-on:click.stop="doThis"></a> -->
+
+<!-- the submit event will no longer reload the page -->
+<!-- <form v-on:submit.prevent="onSubmit"></form> -->
+
+<!-- modifiers can be chained -->
+<!-- <a v-on:click.stop.prevent="doThat"></a> -->
+
+<!-- just the modifier -->
+<!-- <form v-on:submit.prevent></form> -->
+
+<!-- use capture mode when adding the event listener -->
+<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- <div v-on:click.capture="doThis">...</div> -->
+
+<!-- only trigger handler if event.target is the element itself -->
+<!-- i.e. not from a child element -->
+<!-- <div v-on:click.self="doThat">...</div> -->
