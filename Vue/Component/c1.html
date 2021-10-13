@@ -8,11 +8,23 @@
 </head>
 <body>
     <div id="app">
-        
+        <count></count>
+        <count></count>
+        <count></count>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
+        Vue.component("count",{
+            data(){    // data of component must be function not like data : { count : 0}     
+                return {
+                    count : 0
+                }
+            },
+            template : `
+                <button @click.prevnet="count++">You click {{ count }} Times</button>
+            `
+        })
         let app = new Vue({
             el : '#app'
         })

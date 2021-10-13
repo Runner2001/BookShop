@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div :style="{ fontSize: postfont + 'em' }">
+        <blog-post
+          v-for="post in posts"
+          v-bind:key="post.id"
+          v-bind:post="post"
+          v-on:enlarge-text='postfont += 1'
+        ></blog-post>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+    Vue.component('blog-post', {
+      props: ['post'],
+      template: `
+        <div>
+          <h3>{{ post.title }}</h3>
+          <button v-on:click="$emit('enlarge-text')">
+            Enlarge text
+          </button>
+          <div v-html="post.content"></div>
+        </div>
+        `
+    })
+          let app = new Vue({
+            el: "#app",
+            data: {
+              posts: [
+                { id: 1, title: "hello I am from array" },
+                { id: 2, title: "hello I am from arrary 2" },
+                { id: 3, title: "hello I am from array 3" },
+              ],
+              postfont: 1,
+            },
+          });
+    </script>
+  </body>
+</html>

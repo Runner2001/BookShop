@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <props value="You are awesome props 1"></props>
+      <props value="You are awesome props 2"></props>
+      <props value="You are awesome props 3"></props>
+      <!-- u can also pass from array -->
+      <arrayprop
+        v-for="posts in post"
+        v-bind:key="posts.id"
+        v-bind:title="posts.title"
+      >
+      
+    </arrayprop>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      Vue.component("arrayprop", {
+        props: ["title"],
+        template: `<li>{{title}}</li>`,
+      });
+      Vue.component("props",{
+          props: ["value"],
+          template: `<h3>{{value}}</h3>`
+      })
+      new Vue({
+        el: "#app",
+        data: {
+          post: [
+            { id: 1, title: "hello I am from array" },
+            { id: 2, title: "hello I am from arrary 2" },
+            { id: 3, title: "hello I am from array 3" },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

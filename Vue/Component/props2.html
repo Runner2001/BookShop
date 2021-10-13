@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <shop
+        v-for="product in products"
+        v-bind:key="product.id"
+        v-bind:product="product"
+        v-model="checklist"
+      >
+    </shop>
+    
+    <hr>
+      <div
+        v-for="product in products"
+      >
+        <input 
+            type="checkbox" 
+            v-model="checklist"
+            v-bind:value="product.name"
+        />
+        <label>{{product.name}}</label>
+      </div>
+      <p>YOur Checklist {{checklist}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+    Vue.component('shop',{
+        props : ['product'],
+        data(){
+          return {
+            checklist :[]
+          }
+        },
+        template : `
+            <div>
+                <input type='checkbox' :value='product.name' v-model='checklist'>
+                <label>{{product.name}}</label>
+            </div>
+        `
+    })
+    
+    new Vue({
+        el: "#app",
+        data: {
+          products: [
+            { id: 1, name: "Apple", price: 2, country: "USA" },
+            { id: 2, name: "Banana", price: 2, country: "USA" },
+            { id: 3, name: "Potato", price: 2, country: "USA" },
+          ],
+          checklist : []
+        },
+      });
+    </script>
+  </body>
+</html>
